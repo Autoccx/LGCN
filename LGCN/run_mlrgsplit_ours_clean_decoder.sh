@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+python main.py \
+  --image_dir "/root/autodl-tmp/mimic_cxr/images" \
+  --ann_path "/root/autodl-tmp/five_work_mimic_cxr_annotation_v1.1.json" \
+  --dataset_name mimic_cxr \
+  --target_report_field findings \
+  --rad_dino_path "/root/autodl-tmp/RadDINO" \
+  --cxr_bert_path "/root/autodl-tmp/CXR-BERT" \
+  --max_seq_length 120 \
+  --indication_max_length 48 \
+  --prior_report_max_length 120 \
+  --threshold 10 \
+  --epochs 30 \
+  --batch_size 64 \
+  --num_workers 8 \
+  --num_layers 3 \
+  --d_model 512 \
+  --visual_graph_topk 6\
+  --temporal_graph_topk 4\
+  --d_ff 512 \
+  --num_heads 8 \
+  --beam_size 3 \
+  --length_penalty 1.0 \
+  --min_length 45 \
+  --lr_ve 5e-5 \
+  --lr_ed 1e-4 \
+  --step_size 5 \
+  --gamma 0.8 \
+  --save_dir results/topk_6_4 \
+  --log_period 500
